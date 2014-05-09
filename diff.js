@@ -78,7 +78,6 @@ function diff(firstObj, secondObj) {
                 }
                 normArr.push(i);
             } else {
-//                console.log("Diff2", nod1, nod2, parent1, parent2);
                 difference.push(applyDiff("added", nod2));
             }
         } else {
@@ -131,6 +130,7 @@ function getAllNodes(rootObj, isChild, parents) {
     var nodes = rootObj.childNodes;
     for (var i in nodes) {
         if (nodes[i].nodeType !== undefined) {
+            // Skip line breaks
             if (nodes[i].nodeType === 3 && /^\n\s+$/.test(nodes[i].data)) continue;
             nodeArr[count] = []; // Init array
 
